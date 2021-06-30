@@ -1,0 +1,57 @@
+<body>
+  <div class="main_container">
+    <div class="information">
+    <h2>スケジュール一覧</h2>
+      <% if flash[:notice]%>
+        <div class="flash">
+          <%= flash[:notice]%>
+        </div>
+      <% end %>
+    </div>
+    <table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>タイトル</th>
+            <th>開始日</th>
+            <th>終了日</th>
+            <th>終日</th>
+            <th>スケジュール更新日時</th>
+            <th>確認</th>
+            <th>編集</th>
+            <th>削除</th>
+        </tr>
+    </thead>
+    <% @post.each do |post| %>
+        <tbody>
+                <tr>
+                    <td><%= post.id %></td>
+                    <td><%= post.title %></td>
+                    <td><%= post.start_date %></td>
+                    <td><%= post.end_date %></td>
+                    <td><%if post.all_day == true %>◯
+                        <%else post.all_day == false %>
+                        <% end %>
+                    </td>
+                    <td><%= post.updated_at.strftime("%Y年%m月%d日 %H時%M分") %></td>
+                    <td>
+                        <%= link_to "確認", post %>
+                    </td>
+                    <td>
+                        <%= link_to "編集", [:edit, post] %>
+                    </td>
+                    <td>
+                        <%= link_to "削除", post, method: :delete, data: { confirm: '本当に削除しますか？' }  %>
+                    </td>
+                </tr>
+        </tbody>
+        <% end %>
+    </table>
+  </div>
+  <p><%= link_to "スケジュール新規登録", :new_post %></p>
+  <footer>
+    <h1>現在の日付 : <%= Date.current.strftime("%y年" "%m月" "%d日") %></h1>
+        　スケジュール合計 : <%= @post.count%>
+    </h1>
+  </footer>
+</body>
