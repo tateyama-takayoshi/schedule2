@@ -1546,3 +1546,49 @@ Processing by PostsController#create as HTML
 Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.0ms | Allocations: 9404)
 
 
+Started GET "/" for ::1 at 2021-07-02 15:29:43 +0900
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/tateyamatakayoshi/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/tateyamatakayoshi/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.1.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.1ms | Allocations: 352)
+Completed 200 OK in 27ms (Views: 10.6ms | ActiveRecord: 0.0ms | Allocations: 2848)
+
+
+Started GET "/posts" for ::1 at 2021-07-02 15:29:49 +0900
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:54
+  Rendered posts/index.html.erb within layouts/application (Duration: 22.2ms | Allocations: 8112)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 102.8ms | Allocations: 17915)
+Completed 200 OK in 112ms (Views: 105.4ms | ActiveRecord: 1.7ms | Allocations: 19858)
+
+
+Started GET "/posts/new" for ::1 at 2021-07-02 15:29:53 +0900
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered shared/_error.html.erb (Duration: 2.9ms | Allocations: 647)
+  Rendered posts/new.html.erb within layouts/application (Duration: 21.0ms | Allocations: 2611)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 34.6ms | Allocations: 6384)
+Completed 200 OK in 39ms (Views: 35.9ms | ActiveRecord: 0.0ms | Allocations: 6964)
+
+
+Started POST "/posts" for ::1 at 2021-07-02 15:29:55 +0900
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"", "start_date"=>"", "end_date"=>"", "all_day"=>"0", "memo"=>""}, "commit"=>"スケジュールを新規登録する"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered shared/_error.html.erb (Duration: 12.5ms | Allocations: 3234)
+  Rendered posts/new.html.erb within layouts/application (Duration: 25.3ms | Allocations: 6290)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 34.1ms | Allocations: 9832)
+Completed 200 OK in 40ms (Views: 34.9ms | ActiveRecord: 0.0ms | Allocations: 11111)
+
+
